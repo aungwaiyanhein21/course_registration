@@ -1,34 +1,61 @@
-# Course Registration Application
+# Course Registration System
 
-<img src="images/course_schedule.png" width=70% />
+<p>
+    The database application for online course registration.   
+</p>
 
 <hr>
+<!-- This application helps to streamline the process of course enrollment in Simon's Rock College. The application consists of three main views: student, professors and registrar. Students can select the courses without worries about course conflicting and request enrollment in a course with just a click. Professors can then see lists of courses along with the students who have requested for enrollment. Professors can either accept, put into waitlist or decline. The Registrar can view students' enrollments in all the course and can create courses and sections. -->
 
-## Summary
+
+<!-- 3 Gifs here instead of images -->
+
+## Database Design
+
+<img src="images/course_registration_ERD.png" width=70% />
 <p>
-   This application helps to streamline the process of course enrollment in Simon's Rock College. The application consists of three main views: student, professors and registrar. Students can select the courses without worries about course conflicting and request enrollment in a course with just a click. Professors can then see lists of courses along with the students who have requested for enrollment. Professors can either accept, put into waitlist or decline. The Registrar can view students' enrollments in all the course and can create courses and sections.
+    Entity-Relationship diagram for course registration system. Includes three domains: Student View, Professor View and Registrar View.
 </p>
 
 <hr>
 
-## Some Screenshots
+<h2> Student Dashboard </h2>
+<img src="images/student_home.png" width=70% />
+<p>
+    Students can see their selected courses.They can add new courses and check the schedule for time conflicts. The selected courses appear in the professors' view.
+</p>
 
-<img src="images/student_home.png" width=50% />
-<p>Student's Dashboard</p><br>
+<hr>
 
-<img src="images/professor_courses.png" width=50% />
-<p>Professor's dashboard with the ability to respond the request</p><br>
+<h2> Professor Dashboard </h2>
+<img src="images/professor_courses.png" width=70% />
+<p>
+    Professors see student enrollment for each course. They can approve, reject or transfer the student to the waitlist.
+</p>
 
-<img src="images/registrar_add_course.png" width=50% />
-<p>Adding Course By Registrar</p><br>
-
-<img src="images/registrar_add_section.png" width=50% />
-<p>Adding Section By Registrar</p><br>
+<h2> Registrar Dashboard </h2>
+<img src="images/registrar_roster.png" width=70% />
+<p>
+    Registrar adds new and edits existing course information.
+</p>
 
 
 <hr>
 
-## Why build it?
+
+<hr>
+
+
+## Tech Stack
+<ul>
+    <li>MySQL</li>
+    <li>PHP</li>
+    <li>HTML, CSS, JS</li>
+</ul>
+
+<hr>
+
+<!-- ## Motivation
 <p>
     Near the end of the semester (especially few days before exams), students wait in line for course registration. This process takes students' time to study. Students are waiting in anxiety because they do not know whether the courses they want to take are full. When their turn come, students have to rush to enroll in courses. If the course they want to take is full, they immediately have to find the course to substitute. Once they have got the signatures from all the professors on the sheet of paper, the students then submit these papers to the appointed staff who will enter those manually into the system.
 </p>
@@ -59,15 +86,23 @@
     Register can see the roster of all the courses along with the status of the students whether the students have already enrolled, waitlisted or rejected. Register can create a course by filling out information provided by the department head. After they have created a course, they create a section. Those changes will be reflected when the students look for courses.
 </p>
 
-<hr>
+<hr> -->
 
-## Tech Stack
-<ul>
-    <li>HTML</li>
-    <li>CSS</li>
-    <li>JS</li>
-    <li>PHP</li>
-    <li>MySQL</li>
-</ul>
+<!-- ## Some Screenshots
 
-<hr>
+<img src="images/student_home.png" width=50% />
+<p>Student's Dashboard</p><br>
+
+<img src="images/professor_courses.png" width=50% />
+<p>Professor's dashboard with the ability to respond the request</p><br>
+
+<img src="images/registrar_add_course.png" width=50% />
+<p>Adding Course By Registrar</p><br>
+
+<img src="images/registrar_add_section.png" width=50% />
+<p>Adding Section By Registrar</p><br>
+
+
+<hr> -->
+
+
