@@ -41,27 +41,40 @@
         <h3>Course Planner</h3>
 
         <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-            <input type="submit" value="get all current courses" name="get_all_current_courses" />
+            <input class="btn btn-primary" type="submit" value="get all current courses" name="get_all_current_courses" />
         </form>
 
         </br>
 
         <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-            <select name="search_filter">
-                <option value="">Search type...</option>
-                <option value="course_num">Course Number</option>
-                <option value="course_title">Course Title</option>
-                <option value="professor_name">Professor Name</option>
-            </select>
-            <input type='text' name="search_txt" placeholder="search...">
-            <input type="submit" value="Search" name="search" />
+            
+            <div class="row g-3 align-items-center">
+                <div class="col-auto">
+                    <select class="form-select" name="search_filter">
+                        <option value="">Search type...</option>
+                        <option value="course_num">Course Number</option>
+                        <option value="course_title">Course Title</option>
+                        <option value="professor_name">Professor Name</option>
+                    </select>
+                </div>
+                <div class="col-auto">
+                    <input class="form-text form-control" type='text' name="search_txt" placeholder="search...">
+                </div>
+                <div class="col-auto">
+                    <input class="form-text btn btn-outline-primary" type="submit" value="Search" name="search" />
+                </div>
+
+            </div>
+           
         </form>
         
         </br>
 
         <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-            <select name="subject_area_select_box">
-                <option value="">--Select Subject Area--</option>
+            <div class="row g-2 align-items-center">
+                <div class="col-auto">
+                    <select class="form-select" name="subject_area_select_box">
+                        <option value="">--Select Subject Area--</option>
 <?php
                     $query2 = "SELECT id,name FROM Subject_Area ORDER BY name";
                     $results2 = $file_db->query($query2);
@@ -71,25 +84,64 @@
                     }
 
 ?>
-            </select>
-            <input type="submit" value="Apply Changes For Subject_Area" name="filter_by_subject_area" />
+                    </select>
+                </div>
+                <div class="col-auto">
+                    <input class="form-text btn btn-outline-primary"  type="submit" value="Apply Changes For Subject_Area" name="filter_by_subject_area" />
+                </div>
+
+            </div>
+
+           
         </form>
         </br>   
         
  
         <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-            <input type="radio" name="mod" value="MOD_1"  />MOD 1 Courses
-            <input type="radio" name="mod" value="MOD_2" />MOD 2 Courses
-            <input type="submit" value="Apply Changes For MOD" name="MOD" />
+            <div class="row g-3 align-items-center">
+                <div class="col-auto">
+                    <input class="form-check-input" type="radio" name="mod" value="MOD_1"  />
+                    <label class="form-check-label">
+                        MOD 1 Courses
+                    </label>
+                </div>
+                <div class="col-auto">
+                    <input class="form-check-input" type="radio" name="mod" value="MOD_2"  />
+                    <label class="form-check-label">
+                        MOD 2 Courses
+                    </label>
+                   
+                </div>
+                <div class="col-auto">
+                    <input class="form-text btn btn-outline-primary"  type="submit" value="Apply Changes For MOD" name="MOD" />
+                </div>
+
+            </div>
         </form>
 
 
         <br />
 
         <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-            <input type="checkbox" name="W" value="writing_intensive"/>Writing Intensive &nbsp
-            <input type="checkbox" name="CP" value="cultural_perspective"/>Cultural Perspective
-            <input type="submit" value="Apply Changes For W/CP courses" name="W_CP"/>
+            <div class="row g-3 align-items-center">
+                <div class="col-auto">
+                    <input class="form-check-input" type="checkbox" name="W" value="writing_intensive"/>
+                    <label class="form-check-label">
+                        Writing Intensive
+                    </label>
+                </div>
+                <div class="col-auto">
+                    <input class="form-check-input" type="checkbox" name="CP" value="cultural_perspective"/>
+                    <label class="form-check-label">
+                        Cultural Perspective
+                    </label> 
+                </div>
+                <div class="col-auto">
+                    <input class="form-text btn btn-outline-primary" type="submit" value="Apply Changes For W/CP courses" name="W_CP"/>
+                </div>
+
+            </div>
+        
         </form>
          
         <!--<hr>-->
@@ -401,7 +453,7 @@
                         <input type="hidden" name="added_course_id" value="<?php echo $row['id'] ?>"/>
                         <input type="hidden" name="added_course_num" value="<?php echo $row['num'] ?>"/>
                         <input type="hidden" name="added_course_letter" value="<?php echo $row['letter'] ?>"/>
-                        <input type="submit" value="Add To Schedule" name="add_to_schedule" />
+                        <input class="btn btn-primary" type="submit" value="Add To Schedule" name="add_to_schedule" />
                     </form>
                 </td>
 
@@ -413,7 +465,7 @@
 
                         $href_str = 'course_detail.php?num='.$c_num.'&letter='.$s_letter.'&semester='.$semester;
                         
-                        echo "<a href='$href_str' target='_blank'><button>More Details</button></a>";
+                        echo "<a href='$href_str' target='_blank'><button class='btn btn-secondary'>Details</button></a>";
                     ?>
                 </td>
             </tr>

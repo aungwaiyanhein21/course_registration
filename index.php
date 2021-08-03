@@ -8,8 +8,8 @@
 
   require_once('connect_db.php');
 
-  // Show the navigation menu
-  require_once('nav_menu.php');
+  // // Show the navigation menu
+  // require_once('nav_menu.php');
 
   // Connect to the database 
   try {
@@ -27,11 +27,11 @@
 <?php
     }
 
-    echo "<p>Welcome ".$_SESSION['username']."</p>";
+    echo "<h3>Welcome ".$_SESSION['username']."</h3><br/>";
 
 
     if ($_SESSION['role'] == "student") {
-      echo "<h5>Waiting for Professors to respond</h5>";
+      echo "<h5 class='waiting-for-approval decision-title'>Waiting for Professors to respond</h5>";
 
       $user_email = $_SESSION['username']."@simons-rock.edu";
 
@@ -76,7 +76,7 @@
       }
 
       //enrolled courses
-      echo "<h5>Enrolled Courses</h5>";
+      echo "<h5 class='enrolled decision-title'>Enrolled Courses</h5>";
       $state = "enrolled";
       $query = "SELECT c.id, c.num, c.title, c.credits, e.section_letter, e.state
                   FROM Course c, enrolls e 
@@ -106,7 +106,7 @@
       }
 
       // waitlisted courses
-      echo "<h5>Waitlisted Courses</h5>";
+      echo "<h5 class='waitlisted decision-title'>Waitlisted Courses</h5>";
       $state = "waitlisted";
       $query = "SELECT c.id, c.num, c.title, c.credits, e.section_letter, e.state
                   FROM Course c, enrolls e 
@@ -135,7 +135,7 @@
 
 
       // Unconfirmed Courses
-      echo "<h5>Unconfirmed Courses</h5>";
+      echo "<h5 class='unconfirmed decision-title'>Unconfirmed Courses</h5>";
       $state = "unconfirmed";
       $query = "SELECT c.id, c.num, c.title, c.credits, e.section_letter, e.state
                   FROM Course c, enrolls e 

@@ -2,8 +2,8 @@
     // Start the session
     require_once('start_session.php');
 
-    // Show the navigation menu
-    require_once('nav_menu.php');
+    // // Show the navigation menu
+    // require_once('nav_menu.php');
     
     // Insert the page header
     $page_title = 'Course Submitted';

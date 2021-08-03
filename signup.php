@@ -4,6 +4,12 @@
     require_once('header.php');
     // import connection settings
     require_once('connect_db.php'); 
+
+    // Clear the error message
+	$error_msg = "";
+
+    $success_msg = "";
+
     
     // connecting to database
     try {
@@ -27,7 +33,9 @@
                 if($results->fetchColumn() > 0)			
                 {
                     // An account already exists for this username, so display an error message
-                    echo '<p class="error">An account already exists for this username. Please use a different name.</p>';
+                    // echo '<p class="error">An account already exists for this username. Please use a different name.</p>';
+                    
+                    $error_msg = "An account already exists for this username. Please use a different name.";
                     $username = "";
                 }
                 else {
@@ -58,11 +66,13 @@
                     
 
                     // Confirm success with the user
-                    echo '<p>Your new account has been successfully created. You\'re now ready to <a href="login.php">Login</a>.</p>';
+                    // echo '<p>Your new account has been successfully created. You\'re now ready to <a href="login.php">Login</a>.</p>';
+                    $success_msg = "Your new account has been successfully created. You're now ready to <a href='login.php'>Login</a>";
                 }
             }
             else {
-                echo '<p class="error">You must enter all of the sign-up data, including the desired password twice.</p>';
+                $error_msg = "You must enter all of the sign-up data, including the desired password twice.";
+                // echo '<p class="error">You must enter all of the sign-up data, including the desired password twice.</p>';
             }
         }
     }
@@ -72,9 +82,55 @@
     }
 ?>
 
-<p>Please enter your username and desired password to sign up for Course registration.</p>
-<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-    <fieldset>
+<h4>Not yet member of Rocker Community? Join now to register courses easily.</h4>
+
+
+
+
+<div class="form-container">
+    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+        <div class="mb-3">
+            <label class="form-label" for="username">Username:</label>
+            <input class="form-control" type="text" name="username" value="<?php if (!empty($username)) echo $username; ?>" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="password1">Password:</label>
+            <input class="form-control" type="password" name="password1" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="password2">Password (retype):</label>
+            <input class="form-control" type="password" name="password2" />
+        </div>
+        <div class="mb-3">
+            <p>Already have an account? Please <a href="login.php">login</a></p>
+        </div>
+        
+        
+        <?php
+            if (!empty($error_msg)) {
+                echo 
+                "<div class='alert alert-danger' role='alert'>
+                    {$error_msg}
+                </div>";
+            }
+        ?>
+        <?php
+            if (!empty($success_msg)) {
+                echo
+                "<div class='alert alert-success' role='alert'>
+                    {$success_msg}
+                </div>";
+            }
+        ?>
+
+        <input type="submit" class="btn btn-primary" value="Sign Up" name="submit" />
+
+    </form>
+        
+</div>
+
+
+    <!-- <fieldset>
         <legend>Registration Info</legend>
         <label for="username">Username:</label>
         <input type="text" name="username" value="<?php if (!empty($username)) echo $username; ?>" /><br />
@@ -85,8 +141,8 @@
         <label for="password2">Password (retype):</label>
         <input type="password" name="password2" /><br />
     </fieldset>
-    <input type="submit" value="Sign Up" name="submit" />
-</form>
+    <input type="submit" value="Sign Up" name="submit" /> -->
+
 
 <?php
   // Insert the page footer

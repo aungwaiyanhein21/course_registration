@@ -78,25 +78,32 @@
     // If the session var is empty, show any error message and the log-in form; otherwise confirm the log-in
 	if (empty($_SESSION['username'])) 
 	{
-        echo '<p class="error">' . $error_msg . '</p>';
+        // echo '<p class="error">' . $error_msg . '</p>';
 ?>
+    <div class="form-container">
+        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+            <div class="mb-3">
+                <label class="form-label" for="username">Username:</label>
+                <input class="form-control" type="text" name="username" value="<?php if (!empty($user_username)) echo $user_username; ?>" /><br />
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="password">Password:</label>
+                <input class="form-control" type="password" name="password" />
+            </div>
+            <?php
+                if (!empty($error_msg)) {
+                    echo 
+                    "<div class='alert alert-danger' role='alert'>
+                        {$error_msg}
+                    </div>";
+                }
+            ?>
+            <input class="btn btn-primary" type="submit" value="Login" name="submit" />
+        </form>
+    </div>
 
-    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-        <fieldset>
-            <legend>Login</legend>
-            <label for="username">Username:</label>
-            <input type="text" name="username" value="<?php if (!empty($user_username)) echo $user_username; ?>" /><br />
-            <label for="password">Password:</label>
-            <input type="password" name="password" /> <br />
-            <!-- <label for="specific_role">Role:</label>
-            <select name='specific_role'>
-                <option value="">Select...</option>
-                <option value="student">Student</option>
-                <option value="professor">Professor</option>
-            </select> -->
-        </fieldset>
-        <input type="submit" value="Login" name="submit" />
-    </form>
+
+   
     <!-- <p>Don't have an account? Please <a href="signup.php">signup</a></p> -->
 
 <?php

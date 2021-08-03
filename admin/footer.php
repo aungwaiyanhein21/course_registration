@@ -1,4 +1,8 @@
+</main>
+</div>
 <hr />
-  <p class="footer">Copyright &copy;2019 SRC Course Registration Enterprises, Inc.</p>
+<footer>
+  <p class="footer">Copyright &copy;2019 SR College Automation Lab</p>
+</footer>
 </body>
 </html>

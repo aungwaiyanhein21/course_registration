@@ -254,9 +254,16 @@
             }
 
 ?>
+            <div class="alert alert-success" role="alert">
+                <p>Successfully submitted the schedule! Redirecting to student dashboard...</p>
+            </div>
+
             <script>
-                alert("Successfully submitted the schedule!");
-                window.location.href = "student_courses.php";
+                setTimeout(() => {
+                    window.location.href = "index.php";
+                }, 3000);
+                // alert("Successfully submitted the schedule!");
+                
             </script>
 <?php
 
@@ -265,7 +272,7 @@
     }
 
 ?>
-        <a href="student_courses.php"><button>Go back to add courses</button></a>
+        <a href="student_courses.php"><button class="btn btn-primary">Go back to add courses</button></a>
         <br>
         <table class="table table-striped">
             <tr>
@@ -288,7 +295,7 @@
                         <input type="hidden" name="course_id_to_be_removed" value="<?php echo $course_arr['id']; ?>" />
                         <input type="hidden" name="course_num_to_be_removed" value="<?php echo $course_arr['num']; ?>" />
                         <input type="hidden" name="course_letter_to_be_removed" value="<?php echo $course_arr['letter']; ?>" />
-                        <input type="submit" value="Remove Added Course" name="delete_added_course" />
+                        <input class="btn btn-danger" type="submit" value="Remove" name="delete_added_course" />
                     </form>
                 </td>
             </tr>
@@ -299,14 +306,14 @@
         </table>
 
         <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-            <input type="submit" value="Check" name="check_schedule">
+            <input class="btn btn-primary" type="submit" value="Check" name="check_schedule">
         </form>
         <br>
 
         <h6>Before submitting, please make sure to click "Check" button and check that all the overlap course lists are empty (eg. [])</h6>
         <h6></h6>
         <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-            <input type="submit" value="Submit the schedule" name="submit_schedule">
+            <input class="btn btn-outline-primary" type="submit" value="Submit the schedule" name="submit_schedule">
         </form>
 
 <?php

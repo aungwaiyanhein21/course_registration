@@ -3,7 +3,7 @@
   echo '<hr />';
 
   // generate nav menu based on whether it is professor, student or registrar
-
+  echo "<div class='container'>";
 
   if (isset($_SESSION['username'])) {
     echo '<a href="index.php">Home</a> &nbsp';
@@ -31,5 +31,8 @@
     echo '<a href="login.php">Login</a> &nbsp';
     echo '<a href="signup.php">Sign Up</a>';
   }
-  echo '<hr />';
+
+  echo "</div>";
+  
+  // echo '<hr />';
 ?>

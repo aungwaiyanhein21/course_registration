@@ -99,7 +99,7 @@
             $course_num = $row['num'];
             $section_letter = $row['section_letter'];
 
-            echo '<p>'.$course_num.$section_letter.' '.$title.'</p>';
+            echo '<p class="course-title">'.$course_num.$section_letter.' '.$title.'</p>';
 
             $query_2 = "SELECT student_id, state, first_name, last_name
                     FROM enrolls, Student
@@ -128,7 +128,7 @@
                     $pending[] = $stud;
 
             }
-            echo '<ol>Enrolled: ';
+            echo '<ol><span class="prof-decision-title">Enrolled: </span>';
             if (count($enrolled) == 0)
                 echo 'There are 0 students enrolled';
             foreach ($enrolled as $e) {
@@ -136,7 +136,7 @@
             }
             echo '</ol>';
             
-            echo '<ol>Waitlisted: ';
+            echo '<ol><span class="prof-decision-title">Waitlisted: </span>';
             if (count($waitlisted) == 0)
                 echo 'There are 0 students waitlisted';
             foreach ($waitlisted as $w) {
@@ -144,7 +144,7 @@
             }
             echo '</ol>';
 
-            echo '<ol>Unconfirmed: ';
+            echo '<ol><span class="prof-decision-title">Unconfirmed: </span>';
             if (count($und) == 0)
                 echo 'There are 0 students unconfirmed';
             foreach ($und as $u) {
@@ -152,24 +152,35 @@
             }
             echo '</ol>';
 
-            echo '<ol>Students requesting class: ';
+            echo '<ol><span class="prof-decision-title">Students requesting class: </span>';
             if (count($pending) == 0)
                 echo 'There are 0 students requesting class';
             foreach ($pending as $p) {
                 $student_id = $p['student_id'];
                 echo "<form method='post' action='".$_SERVER['PHP_SELF']."'>";
-                    echo '<li>'.$p['first_name'].' '.$p['last_name'].', '.$p['student_id'];
-                        echo "&nbsp<select name='status_select_box'>";
-                            echo "<option value=''>Select...</option>";
-                            echo "<option value='accept_enrollment'>Accept Enrollment</option>";
-                            echo "<option value='waitlist'>Put on Waitlist</option>";
-                            echo "<option value='unconfirmed'>Unconfirmed</option>";
-                        echo "</select>";
+                    echo "<div class='row g-3 align-items-center'>";
+                        echo "<div class='col-auto'>";
+                            echo '<li>'.$p['first_name'].' '.$p['last_name'].', '.$p['student_id'];
+                        echo "</div>";
+                        echo "<div class='col-auto'>";
+                            echo "<select class='form-select' name='status_select_box'>";
+                                echo "<option value=''>Select...</option>";
+                                echo "<option value='accept_enrollment'>Accept Enrollment</option>";
+                                echo "<option value='waitlist'>Put on Waitlist</option>";
+                                echo "<option value='unconfirmed'>Unconfirmed</option>";
+                            echo "</select>";
+                        echo "</div>";
+                        echo "<div class='col-auto'>";
+                            echo "<input class='btn btn-outline-primary' type='submit' value='Respond Request' name='respond_request'>";
+                        echo "</div>";
+                    echo "</div>";
+                   
+                       
                         echo "<input type='hidden' value= '$student_id' name='student_id'>";
                         echo "<input type='hidden' value='$course_id' name='course_id'>";
                         echo "<input type='hidden' value='$section_letter' name='section_letter'>";
                         echo "<input type='hidden' value='$semester' name='semester'>";
-                        echo "<input type='submit' value='Respond Request' name='respond_request'>";
+                        
                     echo '</li>';
                 echo "</form>";
             }

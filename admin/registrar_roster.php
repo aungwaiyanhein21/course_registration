@@ -41,7 +41,7 @@
 ?>
 
 
-<h3>All Courses</h3>
+<h2>All Courses</h2>
 <?php
 
     $course_title_check_arr = array();
@@ -51,21 +51,31 @@
             echo '<hr>';
             //$href_str = 'course_edit.php?id='.$row;
             $cid = $row['id'];
-            echo " <h4> $title </h4> ";
-            echo "<form method=\"post\" action=\"course_edit.php\"> 
-                <input type=\"hidden\" name=\"id\" value=\"$cid\" />
-                <input type=\"submit\" value=\"Edit\" name=\"submit\" />    
-                </form>";
-            echo "<form method=\"post\" action=\"course_delete.php\"> 
-            <input type=\"hidden\" name=\"id\" value=\"$cid\" />
-            <input type=\"submit\" value=\"Delete\" name=\"submit\" />    
-            </form>";
+            
+            echo "<div class='row align-items-center'>";
+                echo 
+                "<div class='col'>
+                    <h3> $title </h3> 
+                </div>";
+                echo 
+                "<div class='col btn-side-by-side'>
+                    <form method=\"post\" action=\"course_edit.php\"> 
+                        <input type=\"hidden\" name=\"id\" value=\"$cid\" />
+                        <input class='btn btn-primary' type=\"submit\" value=\"Edit\" name=\"submit\" />    
+                    </form>;
+                    <form method=\"post\" action=\"course_delete.php\"> 
+                        <input type=\"hidden\" name=\"id\" value=\"$cid\" />
+                        <input class='btn btn-danger' type=\"submit\" value=\"Delete\" name=\"submit\" />    
+                    </form>
+                </div>";
+    
+            echo "</div>";
            
 
             $course_title_check_arr[] = $title;
-            echo '<h5>Sections<h5>';
+            echo '<h4>Sections<h4>';
             }
-        echo '<h4>'.$row['num'].$row['letter'].'</h4>';
+        echo '<h5>'.$row['num'].$row['letter'].'</h5>';
 
         $course_id = $row['id'];
         $section_letter = $row['letter'];

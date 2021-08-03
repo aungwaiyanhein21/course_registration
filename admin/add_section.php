@@ -4,8 +4,8 @@
 
     require_once('start_session.php');
 
-    // Show the navigation menu
-    require_once('nav_menu.php');
+    // // Show the navigation menu
+    // require_once('nav_menu.php');
 
     // Insert the page header
     $page_title = 'Add Section';
@@ -84,38 +84,86 @@
 
     echo "
     <form method='POST' action='submit_section.php' id='addsectionform'>
-        <fieldset>
-            <legend>Add Section</legend>
-            <label for='Course_Type'>Course Type</label>
-                <select name='Course_Type' form='addsectionform'>
-                    <option value='SELECT_COURSE'>[SELECT COURSE]</option>
-                    $options
-                </select> <br />
-            <label for='Location'>Location</label>
-                <select name='Location' form='addsectionform'>
-                    <option value='SELECT_BUILDING'>[SELECT BUILDING]</option>
-                    $buildings
-                </select> <br />
-            <label for='Taught_By'>Taught By</label>
-                <select name='Taught_By' form='addsectionform'>
-                    <option value='SELECT_PROFESSOR'>[SELECT PROFESSOR]</option>
-                    $profs
-                </select> <br />                       
-            <label for='Room_Number'>Room Number</label>   
-                <input type='text' name='Room_Number' /> <br/>      
-            <label for='Max_Students'>Max Students</label>    
-                <input type='number' name='Max_Students' /><br />       
-            <label for='Timeslot_Ids'>Time Slots</label>   
-                <select multiple name='Timeslot_Ids[]' form='addsectionform'>
-                    $timeslots
-                </select>\t**Press down the ctrl key to select multiple<br/>
-            <label for='Mod_Type'>Mod Type</label>
-                <select name='Mod_Type' form='addsectionform'>
-                    <option value='None'>None</option>
-                    <option value='1'>Mod 1</option>
-                    <option value='2'>Mod 2</option>
-                </select>
-        </fieldset>
-        <input type='submit' value='Submit' name='submit' />
+        <div class='mb-3'>
+            <label class='form-label' for='Course_Type'>Course Type</label>
+            <select class='form-control' name='Course_Type' form='addsectionform'>
+                <option value='SELECT_COURSE'>[SELECT COURSE]</option>
+                $options
+            </select>
+        </div>
+        <div class='mb-3'>
+            <label class='form-label' for='Location'>Location</label>
+            <select class='form-control' name='Location' form='addsectionform'>
+                <option value='SELECT_BUILDING'>[SELECT BUILDING]</option>
+                $buildings
+            </select>
+        </div>
+        <div class='mb-3'>
+            <label class='form-label' for='Taught_By'>Taught By</label>
+            <select class='form-control' name='Taught_By' form='addsectionform'>
+                <option value='SELECT_PROFESSOR'>[SELECT PROFESSOR]</option>
+                $profs
+            </select>
+        </div>
+        <div class='mb-3'>
+            <label class='form-label' for='Room_Number'>Room Number</label>   
+            <input class='form-control' type='text' name='Room_Number' />
+        </div>
+        <div class='mb-3'>
+            <label class='form-label' for='Max_Students'>Max Students</label>    
+            <input class='form-control' type='number' name='Max_Students' /> 
+        </div>
+        <div class='mb-3'>
+            <label class='form-label' for='Timeslot_Ids'>Time Slots</label>   
+            <select class='form-control' multiple name='Timeslot_Ids[]' form='addsectionform'>
+                $timeslots
+            </select>\t**Press down the ctrl(on window)/command(on mac) key to select multiple
+        </div>
+        <div class='mb-3'>
+            <label class='form-label' for='Mod_Type'>Mod Type</label>
+            <select class='form-control' name='Mod_Type' form='addsectionform'>
+                <option value='None'>None</option>
+                <option value='1'>Mod 1</option>
+                <option value='2'>Mod 2</option>
+            </select>
+        </div>
+        <input class='btn btn-primary' type='submit' value='Submit' name='submit' />
     </form>
+       
     ";
+
+
+//     <fieldset>
+//     <legend>Add Section</legend>
+//     <label for='Course_Type'>Course Type</label>
+//         <select name='Course_Type' form='addsectionform'>
+//             <option value='SELECT_COURSE'>[SELECT COURSE]</option>
+//             $options
+//         </select> <br />
+//     <label for='Location'>Location</label>
+//         <select name='Location' form='addsectionform'>
+//             <option value='SELECT_BUILDING'>[SELECT BUILDING]</option>
+//             $buildings
+//         </select> <br />
+//     <label for='Taught_By'>Taught By</label>
+//         <select name='Taught_By' form='addsectionform'>
+//             <option value='SELECT_PROFESSOR'>[SELECT PROFESSOR]</option>
+//             $profs
+//         </select> <br />                       
+//     <label for='Room_Number'>Room Number</label>   
+//         <input type='text' name='Room_Number' /> <br/>      
+//     <label for='Max_Students'>Max Students</label>    
+//         <input type='number' name='Max_Students' /><br />       
+//     <label for='Timeslot_Ids'>Time Slots</label>   
+//         <select multiple name='Timeslot_Ids[]' form='addsectionform'>
+//             $timeslots
+//         </select>\t**Press down the ctrl key to select multiple<br/>
+//     <label for='Mod_Type'>Mod Type</label>
+//         <select name='Mod_Type' form='addsectionform'>
+//             <option value='None'>None</option>
+//             <option value='1'>Mod 1</option>
+//             <option value='2'>Mod 2</option>
+//         </select>
+// </fieldset>
+// <input type='submit' value='Submit' name='submit' />
+// </form>

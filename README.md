@@ -20,7 +20,8 @@
 <hr>
 
 <h2> Student Dashboard </h2>
-<img src="images/student_home.png" width=70% />
+<img src="images/student_dashboard.png" width=70% />
+<img src="images/gif/student_course_regsitration_480px.gif" width=70% />
 <p>
     Students can see their selected courses.They can add new courses and check the schedule for time conflicts. The selected courses appear in the professors' view.
 </p>
@@ -28,13 +29,17 @@
 <hr>
 
 <h2> Professor Dashboard </h2>
-<img src="images/professor_courses.png" width=70% />
+
+<img src="images/gif/professor_response_480px.gif" width=70% />
+<img src="images/gif/professor_view_480px.gif" width=70% />
 <p>
     Professors see student enrollment for each course. They can approve, reject or transfer the student to the waitlist.
 </p>
 
 <h2> Registrar Dashboard </h2>
 <img src="images/registrar_roster.png" width=70% />
+<img src="images/gif/registrar_add_course.gif" width=70% />
+<img src="images/gif/registrar_add_section.gif" width=70% />
 <p>
     Registrar adds new and edits existing course information.
 </p>
@@ -42,6 +47,13 @@
 
 <hr>
 
+## Contributors
+<ul>
+    <li>Aung Wai Yan Hein</li>
+    <li>Ajeya Sathyagal</li>
+    <li>Ebadallah Seibou</li>
+    <li>Iman Anwarzai</li>
+</ul>
 
 <hr>
 
@@ -54,6 +66,10 @@
 </ul>
 
 <hr>
+
+
+Copyright &copy; SR College Automation Lab
+
 
 <!-- ## Motivation
 <p>

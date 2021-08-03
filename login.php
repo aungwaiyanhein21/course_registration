@@ -25,7 +25,7 @@
             $page_title = 'Login';
             require('header.php');
 
-            echo "<h3>Welcome to Course Registration. Please login to get started.</h3>";
+            echo "<h4>Welcome to Course Registration. Please login to get started.</h4>";
 
 
 			if (isset($_POST['submit'])) 
@@ -65,7 +65,7 @@
 				}
 				else {
 					// The username/password weren't entered so set an error message
-					$error_msg = 'Sorry, you must enter your username,password and role to log in.';
+					$error_msg = 'Sorry, you must enter your username, password and role to log in.';
 				}
 			}
 		}
@@ -80,27 +80,44 @@
     // If the session var is empty, show any error message and the log-in form; otherwise confirm the log-in
 	if (empty($_SESSION['username'])) 
 	{
-        echo '<p class="error">' . $error_msg . '</p>';
+        // echo '<p class="error">' . $error_msg . '</p>';
 ?>
+    <div class="form-container">
+        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+            <div class="mb-3">
+                <label class="form-label" for="username">Username:</label>
+                <input class="form-control" type="text" name="username" value="<?php if (!empty($user_username)) echo $user_username; ?>" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="password">Password:</label>
+                <input class="form-control" type="password" name="password" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="specific_role">Role:</label>
+                <select class="form-select" name='specific_role'>
+                    <option value="">Select...</option>
+                    <option value="student">Student</option>
+                    <option value="professor">Professor</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <p>Don't have an account? Please <a href="signup.php">signup</a></p>
+            </div>
+            
+            <?php
+                if (!empty($error_msg)) {
+                    echo 
+                    "<div class='alert alert-danger' role='alert'>
+                        {$error_msg}
+                    </div>";
+                }
+            ?>
 
-    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-        <fieldset>
-            <legend>Login</legend>
-            <label for="username">Username:</label>
-            <input type="text" name="username" value="<?php if (!empty($user_username)) echo $user_username; ?>" /><br />
-            <label for="password">Password:</label>
-            <input type="password" name="password" /> <br />
-            <label for="specific_role">Role:</label>
-            <select name='specific_role'>
-                <option value="">Select...</option>
-                <option value="student">Student</option>
-                <option value="professor">Professor</option>
-            </select>
-        </fieldset>
-        <input type="submit" value="Login" name="submit" />
-    </form>
-    <p>Don't have an account? Please <a href="signup.php">signup</a></p>
+            <input type="submit" class="btn btn-primary" value="Login" name="submit" />
 
+        </form>
+        
+    </div>
 <?php
 	}
 	else {

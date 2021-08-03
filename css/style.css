@@ -1,3 +1,35 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  border-bottom: 1px solid black;
+  padding: 10px 0;
+}
+
+.header-title {
+  text-align: center;
+}
+
+main {
+  min-height: 100vh;
+  padding-top: 40px;
+}
+
+.form-container {
+  margin-top: 50px;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+.form-container > * {
+  margin: 30px 0px;
+}
+
+
 .footer {
   text-align: center;
   font-size: 80%;
@@ -26,3 +58,38 @@ img.profile {
   vertical-align: top;
 }
 
+.decision-title {
+  padding: 10px;
+}
+
+.waiting-for-approval {
+  background-color: var(--bs-yellow);
+}
+
+.enrolled {
+  background-color: green;
+  color: white;
+}
+
+.waitlisted {
+  background-color: rgb(235, 235, 82);
+}
+
+.unconfirmed {
+  background-color: red;
+  color: white;
+}
+
+/*****************************
+  For professors
+*****************************/
+.course-title {
+  font-style: italic;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.prof-decision-title {
+  font-weight: bold;
+  font-size: 1.1rem;
+}

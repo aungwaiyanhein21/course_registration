@@ -27,7 +27,7 @@
 <?php
     }
 
-    echo "<p>Welcome ".$_SESSION['username']."</p>";
+    echo "<h3>Welcome ".$_SESSION['username']."</h3>";
     echo "<p> View the roster at the registrar_roster page</p>";
 
   }
