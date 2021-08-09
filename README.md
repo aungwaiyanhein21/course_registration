@@ -1,7 +1,7 @@
 # Course Registration System
 
 <p>
-    The database application for online course registration.   
+    The database web application for online course registration.   
 </p>
 
 <hr>
